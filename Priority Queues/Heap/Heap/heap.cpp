@@ -8,12 +8,23 @@ class Heap {
 	int* heap;
 
 	public: 
-
 		Heap() {
 		tabLength = 10;
 		heap = new int[10];
 		heapSize = 1;
 	}
+
+		Heap(int* tab,int size) {
+			heapSize = size+1;
+			tabLength = 2 * heapSize;
+			heap = new int[tabLength];
+			for (int i = 0;i < size;i++) {
+				heap[i+1]= tab[i];
+			}
+			for (int i = heapSize / 2;i >= 1; i--) {
+				heapDown(i);
+			}
+		}
 
 	void insert(int value) {
 		if (heapSize == tabLength) {
@@ -39,7 +50,7 @@ class Heap {
 		heap[1] = heap[heapSize - 1];
 		heapSize--;
 
-		heapDown();
+		heapDown(1);
 
 		return returnValue;
 	}
@@ -72,8 +83,8 @@ class Heap {
 		}
 	}
 
-	void heapDown() {
-		int currentElem = 1;
+	void heapDown(int i) {
+		int currentElem = i;
 		while (true) {
 			if (currentElem * 2 >= heapSize) {
 				return;
