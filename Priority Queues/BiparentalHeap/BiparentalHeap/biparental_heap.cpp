@@ -9,9 +9,7 @@ public :
 	int j;
 	int k;
 
-	ElemPosition() {
-
-	}
+	ElemPosition() {}
 
 	ElemPosition(int kPos) {
 		k = kPos;
@@ -31,8 +29,6 @@ class BiparentalHeap {
 	int tabLength;
 	int heapSize;
 	int* heap;
-
-
 
 	public: 
 		BiparentalHeap() {
@@ -118,7 +114,7 @@ class BiparentalHeap {
 	}
 
 	private:
-
+	
 	void heapUp(int i) {
 		while (i != 1) {
 			int temp = heap[i];
