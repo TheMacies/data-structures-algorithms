@@ -49,6 +49,7 @@ node* quickSort(node* head, node** tail) {
 		temp->next = more;
 		more = temp;
 	}
+
 	node* tailMore = new(node);
 	node* tailLess = new(node);
 	
