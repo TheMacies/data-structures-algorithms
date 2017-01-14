@@ -21,16 +21,18 @@ node* quickSort(node* head, node** tail) {
 		*tail = head;
 		return head;
 	}
+	
 	node* less = nullptr;
-	node* equal = nullptr;
+	node* equal = head;
 	node* more = nullptr;
-	node* tailEqual = nullptr;
-
-	equal = head;
-	tailEqual = equal;
+	
+	node* tailEqual = head;
+	node* tailMore = new(node);
+	node* tailLess = new(node);
 
 	head = head->next;
 	equal->next = nullptr;
+	
 	while (head) {
 		node *temp = head;
 		if (head->value < equal->value) {
@@ -50,8 +52,6 @@ node* quickSort(node* head, node** tail) {
 		more = temp;
 	}
 
-	node* tailMore = new(node);
-	node* tailLess = new(node);
 	
 	less = quickSort(less, &tailLess);
 	more = quickSort(more, &tailMore);
