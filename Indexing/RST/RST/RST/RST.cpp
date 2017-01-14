@@ -118,8 +118,6 @@ public:
 		}
 
 		node* leaf;
-		node* head = root;
-		int i = 0;
 		if (root->val == val) {
 			leaf = extractLeaf(root);
 			if (leaf == nullptr) {
@@ -131,8 +129,11 @@ public:
 			root = leaf;
 			return;
 		}
-
-		while (head) {
+		
+		
+		node* head = root;
+		
+		for(int i = 0;head;i++){
 			if (bit(val, i) == 1) {
 				if (head->right == nullptr) {
 					break;
@@ -159,8 +160,6 @@ public:
 				}
 				head = head->left;
 			}
-			i++;
 		}
 	}
-
 };
