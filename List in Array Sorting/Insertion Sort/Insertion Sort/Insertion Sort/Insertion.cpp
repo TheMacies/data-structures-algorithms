@@ -25,12 +25,6 @@ public:
 			n->next = - 1;
 			n->key = val;
 
-			if (first == -1) {
-				first = 0;
-				A[0] = n;
-				return;
-			}
-
 			for (int i = 0;i < MAX;i++) {
 				if (A[i] == nullptr) {
 					A[i] = n;
