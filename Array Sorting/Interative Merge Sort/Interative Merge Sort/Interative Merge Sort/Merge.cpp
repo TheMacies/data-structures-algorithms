@@ -3,23 +3,23 @@
 #include <iostream>
 using namespace std;
 
-void merge(int arr[], int l, int m, int r)
+void merge(int arr[], int offset, int middle, int right)
 {
 	int i, j, k;
-	int n1 = m - l + 1;
-	int n2 = r - m;
+	int n1 = middle - offset + 1;
+	int n2 = right - middle;
 
 	int* L = new int[n1];
 	int* R = new int[n2];
 
 	for (i = 0; i < n1; i++)
-		L[i] = arr[l + i];
+		L[i] = arr[offset + i];
 	for (j = 0; j < n2; j++)
-		R[j] = arr[m + 1 + j];
+		R[j] = arr[middle + 1 + j];
 
 	i = 0;
 	j = 0;
-	k = l;
+	k = offset;
 	while (i < n1 && j < n2)
 	{
 		if (L[i] <= R[j])
@@ -70,12 +70,3 @@ void MergeSort(int arr[], int n)
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
